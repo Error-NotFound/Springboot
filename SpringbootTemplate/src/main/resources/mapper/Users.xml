@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.zhang.dao.UserDao">
+    <resultMap type="cn.zhang.model.Users" id="baseResultMap">
+        <id property="userId" column="userId"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <result property="address" column="address"/>
+        <result property="createTime" column="createTime"/>
+        <result property="delFlag" column="delFlag"/>
+        <result property="remark1" column="remark1"/>
+        <result property="remark2" column="remark2"/>
+    </resultMap>
+    
+    <select id="getUsers" resultMap="baseResultMap">
+        select * from users
+    </select>
+    
+    <select id="getUserByNameAndPwd" parameterType="Map" resultMap="baseResultMap">
+        select * from users where name=#{name} and password=#{password}
+    </select>
+    
+    <insert id="insertUser" parameterType="cn.zhang.model.Users">
+        insert into users(name,password,address) values(#{name},#{password},#{address})
+    </insert>
+    <select id="getUserByName" parameterType="Map" resultMap="baseResultMap">
+        select * from users a where a.name=#{name} and a.delFlag=#{delFlag}
+    </select>
+    <select id="getNameAndPassword" parameterType="Map" resultType="Map">
+        select name,password from users a where a.userId=#{userId}
+    </select>
+</mapper>

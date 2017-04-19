@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html ng-app="loginModule">
+<head>
+	<title>登录</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/loginController.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<script type="text/javascript">
+		$(function(){
+			$(".text").each(function(){
+				$(this).bind("blur",function(){
+					if($(".login").hasClass("_login")){
+						return;
+					}else{
+						$(".login").addClass("_login");
+					}
+				})
+			})
+			
+		})
+	</script>
+	<style type="text/css">
+		*{
+			margin:0px;
+			padding: 0px;
+		}
+		::-moz-selection{background:#93C; color:#FCF;} 
+		::selection {background:#93C; color:#FCF;} 
+		body{
+			background: whitesmoke;
+		}
+		.row{
+			border-bottom: 1px solid blue;
+			margin-top: 22px;
+		}
+		.container{
+			text-align: center;
+		}
+		.header_row{
+			margin-top: 0px;
+		}
+		.header{
+			height: 50px;
+			background: blue;
+			text-align: center;
+			font-size: 24px;
+			line-height: 50px;
+		}
+		.text{
+			width: 80%;
+			border:0px;
+			border-bottom:1px;
+			background: transparent;
+			outline: none;
+			text-align: center;
+			font-size:24px;
+			color: green; 
+			font-weight: bold;
+			letter-spacing: 1px;
+		}
+		.login{
+			width: 30%;
+		}
+		._login{
+			animation: loginBtn 5s;
+			animation-fill-mode: forwards;
+		}
+		@keyframes loginBtn{
+			0% {width: 30%;}
+			100% {width: 100%;}
+		}
+		.innerDiv{
+			padding-top: 150px;
+		}
+		.swfRow{
+			text-align: center;
+		}
+		.mySwf{
+			position: absolute;
+			top:300;
+			text-align: center;
+			z-index: -1;
+		}
+		embed{
+
+			margin-left:30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="row header_row" ng-controller="registerController">
+		<div class="header">
+			<p ng-click="register()">test_@requestbody接收对象，后台实体接收</p>
+			<p ng-click="testTranslateMap()">test_@requestbody接收对象，后台map接收</p>
+			<p ng-click="getNameAndPassword()">getNameAndPassword</p>
+			<p></p>
+		</div>
+		<div class="row swfRow">
+			<div class="col-lg-12 mySwf">
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="100%" height="300"> 
+<param name="movie" value="images/zcm.swf"> 
+<param name="quality" value="high"> 
+<param name="wmode" value="transparent"> 
+<embed src="images/zcm.swf" width="100%" height="300" autostart="0" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent" width="100%" height="300"></embed> 
+</object>
+			</div>
+		</div>
+
+	</div>
+	<div class="container" ng-controller="loginController">
+		<div class="innerDiv">
+			<div class="row">
+				<div>
+					<input type="text" placeholder="NAME" ng-model="name" name="name" class="text">
+				</div>
+			</div>
+			<div class="row">
+				<div>
+					<input type="text" placeholder="PASSWORD" ng-model="password" name="password" class="text">
+				</div>
+			</div>
+			<div class="row" ng-click="login(name,password)">
+				<div>
+					<button type="button" class="btn btn-success login">login</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

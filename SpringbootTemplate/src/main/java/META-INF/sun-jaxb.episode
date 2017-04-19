@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<bindings xmlns="http://java.sun.com/xml/ns/jaxb" if-exists="true" version="2.1">
+  <!--
+
+此文件是由 JavaTM Architecture for XML Binding (JAXB) 引用实现 v2.2.11 生成的
+请访问 <a href="http://java.sun.com/xml/jaxb">http://java.sun.com/xml/jaxb</a> 
+在重新编译源模式时, 对此文件的所有修改都将丢失。
+生成时间: 2017.01.11 时间 05:23:11 PM CST 
+
+  -->
+  <bindings xmlns:tns="http://com.hiynn/webservice" if-exists="true" scd="x-schema::tns">
+    <schemaBindings map="false">
+      <package name="cn.zhang.webservice.testClient"/>
+    </schemaBindings>
+    <bindings if-exists="true" scd="tns:getCountryRequest">
+      <class ref="cn.zhang.webservice.testClient.GetCountryRequest"/>
+    </bindings>
+    <bindings if-exists="true" scd="tns:getCountryResponse">
+      <class ref="cn.zhang.webservice.testClient.GetCountryResponse"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:country">
+      <class ref="cn.zhang.webservice.testClient.Country"/>
+    </bindings>
+    <bindings if-exists="true" scd="~tns:currency">
+      <typesafeEnumClass ref="cn.zhang.webservice.testClient.Currency"/>
+    </bindings>
+  </bindings>
+</bindings>

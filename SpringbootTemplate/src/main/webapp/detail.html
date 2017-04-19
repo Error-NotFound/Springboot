@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html ng-app="penoyModule">
+<head>
+	<title>详情</title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/detail.js"></script>
+	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
+	<style type="text/css">
+		body{
+			background: whitesmoke;
+		}
+		.bodyLeft{
+
+			border:1px;
+			overflow-y: scroll;
+			height: 600px;
+		}
+		.myBody{
+			margin:55px 0px;
+		}
+		.bodyLeft .panel-body{
+			padding:25px; 
+			text-align: center;
+			border-bottom: 1px solid blue;
+			cursor: pointer;
+			border-radius: 12px;
+		}
+
+
+		.bodyRight{
+			border:1px;
+		}
+		.imgArea{
+			background: #222;
+			border:1px;
+		}
+
+		.mySortPage{
+			text-align: center;
+		}
+		.pagination{
+			border:1px solid green;
+		}
+		.red{
+			background: green;
+		}
+		.myBottom{
+			text-align: center;
+			color: white;
+			padding: 8px;
+		}
+		.tel{
+			background: red;
+			
+			color: white;
+		}
+	</style>
+	<script type="text/javascript">
+		$(function(){
+			//左侧添加点击事件
+			$('.panel-body').each(function(index){
+				$(this).bind('click',function(){
+					$(this).addClass('red');
+					$(this).siblings().removeClass('red');
+				})
+			})
+			$('.panel-body:first').addClass('red');
+		})
+	</script>
+</head>
+<body>
+<div class="container-fluid" ng-controller="penoyController">
+	<!--网页头部-->
+	<div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#test">
+			        <span class="sr-only">Toggle navigation</span>
+			        <span class="icon-bar">srg</span>
+			        <span class="icon-bar">{{inttt}}</span>
+			        <span class="icon-bar">dfg</span>
+			        </button>
+
+			         <a class="navbar-brand tel" href="index.html">
+			         	<span class="glyphicon glyphicon-screenshot"></span>
+			         	<span>+188160022521</span>
+			         </a>
+			</div>
+			<div class="collapse navbar-collapse" id="test">
+				<ul class="nav navbar-nav">
+					<li class="active" ng-repeat="item in items" ng-click="selectAllByName(item.name,item.eName)"><a href="#"><b>{{item.name}}</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+<!-- 网页身体-->
+<div class="row myBody">
+	<!--身体左侧 -->
+	<div class="col-md-3 col-xs-3 bodyLeft" ng-controller="bodyLeftController">
+		<div class="panel">
+			<div class="panel-body" ng-repeat="item in items" ng-click="selectAllByName(item.name,item.eName)"><b>{{item.name}}</b></div>
+		</div>
+	</div>
+	<!--身体右侧 -->
+	<div class="col-md-9 col-xs-9 bodyRight" ng-controller="bodyRightController">
+		<div class="row imgArea">
+			<div class="col-md-4" ng-repeat="item in itemsImgs">
+				<img ng-src="images/penoy/{{item.eName}}/IMG_{{item.index+1}}.jpg" class="img-responsive img-thumbnail">
+			</div>
+		</div>
+		<!--分页 -->
+		<div class="row mySortPage">
+				<nav>
+				  <ul class="pagination">
+				    <li><a href="#">&laquo;</a></li>
+				    <li ng-repeat="item in itemsPage"><a href="#" ng-click="go(item.eName,item.index+1)">{{item.index+1}}</a></li>
+				    <li><a href="#">&raquo;</a></li>
+				  </ul>
+				</nav>
+		</div>
+	
+	</div>
+</div>
+<!-- 网页底部-->
+<div class="navbar navbar-inverse navbar-fixed-bottom myBottom" role="navigation">
+	<h4>曹州天泽牡丹园艺 - Copyright 2016</h4>
+</div>
+
+
+
+</div>
+</body>
+</html>

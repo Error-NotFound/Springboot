@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>图片上传</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/jquery-form.js"></script>
+<style type="text/css">
+	img {
+		width: 150px;
+		height: 150px;
+	}
+	
+	#showImageAgain {
+		border: 1px solid red;
+		text-align: right;
+	}
+	
+	#showImageAgain2 {
+		border: 1px solid blue;
+	}
+	
+	#showImageAgain3 {
+		border: 5px solid yellow;
+		text-align: center;
+	}
+</style>
+<script type="text/javascript">
+      $(function(){
+        $("#sub2").click(function () {
+          var options = {
+          url: "imageController/uploadImage",
+          beforeSubmit:function(){
+            
+          },
+        
+          success: function (data) {
+              var srcList=data.srcList;
+              var str="";
+              for(var i=0;i<srcList.length;i++){
+                 // str+="<div onclick=\"downloadImg("+srcList[i]+")\"><img src="+srcList[i]+"/></div>";
+            	  str+="<div onclick=\"downloadImg()\"> <img title='根据名称从数据库查找到对应的路径返回' src="+srcList[i]+"/></div>";
+              }
+              $("#showImage").html(str);
+           },
+           error:function(err){
+             console.log("cuole",err);
+           }
+          };
+           $("#form2").ajaxForm(options);
+        })
+      });
+
+      function downloadImg(){
+    	  var name=$("img").attr("src");
+    	  var realName=name.split("\\")[1].replace("/","");
+          $.ajax({
+            url:'imageController/downloadImg',
+            type:'post',
+            data:'name='+realName,
+            success:function(data){
+            	var src="";
+                if(data.status){
+                	src=data.src;
+                	var realSrc=src.split("\\")[6]+"\\"+src.split("\\")[7];
+                	$("#showImageAgain1").html("<div id='dowloadImgByByte'  onclick=\"dowloadImgByByte1()\"><img src="+realSrc+"/>");
+                }
+            },
+            error:function(err){
+              alert(JSON.stringify(err));
+            }
+          })
+      }
+      function dowloadImgByByte1(){
+    	  var name=$("#dowloadImgByByte img").attr("src");
+    	  var realName=name.split("\\")[1].replace("/","");
+          $.ajax({
+            url:'imageController/downloadImgByByte',
+            type:'post',
+            data:'name='+realName,
+            success:function(data){
+                var src="";
+                if(data.status){
+                    src=data.tempSrc;
+                    $("#showImageAgain2").html("<div id='downloadImgByByte1' onclick=\"downloadImgByByte2()\"><img  src="+src+"/></div>");
+                }
+            },
+            error:function(err){
+              alert(JSON.stringify(err));
+            }
+          })
+      }
+      
+      
+      function downloadImgByByte2(){
+    	var name=$("#downloadImgByByte1 img").attr("src");
+    	var realName=name.split("\\")[1].replace("/","");
+    	 $.ajax({
+             url:'imageController/downloadImgByByte',
+             type:'post',
+             data:'name='+realName,
+             success:function(data){
+                 var src="";
+                 if(data.status){
+                     src=data.tempSrc;
+                   
+                     $("#showImageAgain3").html("<div id='downloadImgByByte2' onclick=\"downloadImgByByte3()\"><img  src="+src+"/></div>");
+                 }
+             },
+             error:function(err){
+               alert(JSON.stringify(err));
+             }
+           })
+      }
+      
+      function downloadImgByByte3(){
+          var name=$("#downloadImgByByte2 img").attr("src");
+          var realName=name.split("\\")[1].replace("/","");
+          location.href="imageController/downloadImgByByte3?name="+realName;
+    /* 
+           $.ajax({
+               url:'imageController/downloadImgByByte3',
+               type:'post',
+               data:'name='+realName,
+               success:function(data){
+                
+               },
+               error:function(err){
+                 alert(JSON.stringify(err));
+               }
+             }) */
+        }
+    </script>
+</head>
+<body>
+	<h1>图片上传</h1>
+	<div>
+		<form action="imageController/uploadFile" method="post"
+			enctype="multipart/form-data">
+			File to upload1: <input type="file" name="upfile1"><br />
+			File to upload2: <input type="file" name="upfile2"><br />
+			File to upload3: <input type="file" name="upfile3"><br />
+			Notes about the file: <input type="text" name="note"><br /> <br />
+			<input type="submit" value="上传各种东西"> to upload the file!
+		</form>
+
+		<hr />
+		<div>
+			<form method="post" id="form2" enctype="multipart/form-data">
+				File to upload1: <input type="file" name="upfile1"><br />
+				File to upload2: <input type="file" name="upfile2"><br />
+				File to upload3: <input type="file" name="upfile3"><br />
+				Notes about the file: <input type="text" name="note"><br />
+				<br /> <input type="submit" id="sub2" value="上传图片"> to
+				upload the file!
+			</form>
+
+		</div>
+	</div>
+
+
+	<hr>
+	<div id="div2">
+		<div id="showImage"></div>
+	</div>
+	<div id="showImageAgain1"></div>
+	<div id="showImageAgain2"></div>
+	<div id="showImageAgain3"></div>
+</body>
+</html>

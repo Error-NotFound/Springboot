@@ -1,0 +1,18 @@
+package cn.zhang.controller;
+
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.web.bind.annotation.RestController;
+
+import cn.zhang.model.Greeting;
+import cn.zhang.model.HelloMessage;
+
+@RestController
+public class GreetingController {
+	@MessageMapping("/hello")
+    @SendTo("/topic/greetings")
+    public Greeting greeting(HelloMessage message) throws Exception {
+        Thread.sleep(1000); // simulated delay
+        return new Greeting("Hello, " + message.getName() + "!");
+    }
+}

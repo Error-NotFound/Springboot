@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SHIELD - Free Bootstrap 3 Theme">
+    <meta name="author" content="Carlos Alvarez - Alvarez.is - blacktie.co">
+    
+    <title> SHIELD - Free Bootstrap 3 Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/icomoon.css" rel="stylesheet">
+    <link href="css/animate-custom.css" rel="stylesheet">
+
+   <style type="text/css">
+   		.myPhoto{
+			height: 300px;
+   		}
+   		#headerwrap h1{
+   			font-size: 70px;
+   			margin-top: 0px;
+   		}
+		#headerwrap img{
+			position: absolute;
+			bottom: 155px;
+			right: 0px;
+			width: 150px;
+			height: 150px;
+		}
+		.linian{
+			text-align: center;
+		}
+		.titlePhone{
+			background: red;
+			float: right;
+		}
+		#cs_box {width:120px; height:220px; color:#FFF; background:#54a7ff; position:fixed; right:10px; top:100px; border-radius:10px; z-index:1000}
+	#cs_box span {height:20px; line-height:20px;display:block;}
+	.cs_close {color:#FFF; position:absolute; right:10px; top:8px; cursor:pointer; font-size:20px;font-family:Verdana, Geneva, sans-serif}
+	.cs_title {font-size:14px; margin:10px; font-weight:bold;}
+	.cs_img {width:100px; height:100px; background:#FFF; margin:10px;background-image:url(images/chatImg.jpg) }
+	.cs_info {font-size:12px; margin:0px 10px; overflow:hidden; text-align:center;}
+	.cs_btn {width:100px; height:25px; background:#333; margin:5px 10px; border-radius:5px; font-size:12px; line-height:25px; color:#FFF; text-align:center; cursor:pointer;}
+   		
+   </style>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/modernizr.custom.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+	
+	<script type="text/javascript" src="js/chat.js"></script>
+    <script type="text/javascript">
+    	var count=0;
+    	var i=0;
+    	
+    	$(function(){
+    		count=$(".item").size();
+    		setInterval("changeImg()",1000);
+			myEvent(window,'load',function(){
+			cs_box.set({
+				img_path : 'images/chatImg.jpg',	//设置图片路径
+				qq : '1055521320',	//设置QQ号码
+			});
+		});
+    	});
+    	
+    	function dowload(){
+    		location.href="http://192.168.5.98:8080/SpringbootTemplate/poiController/dowload";
+    		/* $.ajax({
+    			type:"get",
+    			url:"http://192.168.5.98:8080/SpringbootTemplate/poiController/dowload",
+    			data:"",
+    			success:function(data){
+    				console.log("success",data);
+    			},
+    			error:function(err){
+    				console.log("err",err);
+    			}
+    		}) */
+    	}
+    	function changeImg(){
+    		if(i==count-1){
+    			i=0;
+    		}else{
+    			++i;
+    		}
+    		  $(".item").eq(i).addClass("active");
+    		  $(".item").eq(i).siblings().removeClass("active");
+    	}	
+    </script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="assets/js/html5shiv.js"></script>
+      <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body data-spy="scroll" data-offset="0" data-target="#navbar-main">
+  
+  	<div id="navbar-main">
+      <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon icon-shield" style="font-size:30px; color:#3498db;"></span>
+          </button>
+          <a class="navbar-brand hidden-xs hidden-sm" href="#home"><span class="icon icon-shield" style="font-size:18px; color:#3498db;"></span></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#home" class="smoothScroll">首页</a></li>
+			<li> <a href="#about" class="smoothScroll"> 关于</a></li>
+			<li> <a href="#services" class="smoothScroll"> 服务</a></li>
+			<li> <a href="#team" class="smoothScroll"> 团队</a></li>
+			<li> <a href="#portfolio" class="smoothScroll"> 投资</a></li>
+			<li> <a href="#blog" class="smoothScroll"> 博客</a></li>
+			<li> <a href="#" class="smoothScroll" onclick="dowload();">下载excel</a></li>
+			
+			<li> <a href="#contact" class="smoothScroll"> 联系我们</a></li>
+			<li class="titlePhone"><a>13853054865</a></li>
+			</ul>
+        </div>
+
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+    </div>
+
+  
+  <!-- 代码部分begin -->
+<div id='cs_box'>
+	<span class='cs_title'>在线咨询</span>
+	<span class='cs_close'>x</span>
+	<div class='cs_img'></div>
+	<span class='cs_info'>有什么可以帮到你</span>
+	<div class='cs_btn'>点击咨询</div>
+</div>
+		<!-- ==== HEADERWRAP ==== -->
+	    <div id="headerwrap" id="home" name="home" style="background:url('images/header_bg2.jpg') no-repeat center top; background-size: cover;">
+			<header class="clearfix">
+	  		 		<h1><span class="icon icon-shield"></span></h1>
+	  		 		<h1>中国菏泽牡丹</h1>
+	  		 		<p>曹州天泽牡丹园艺</p>
+	  		</header>
+	  				<img src="images/erweima.png" class="erweima">
+	  		    
+	    </div><!-- /headerwrap -->
+
+		<!-- ==== GREYWRAP ==== -->
+		<div id="greywrap">
+			<div class="row">
+				<div class="col-lg-12 callout">
+					<span class="icon icon-cart-checkout"></span>
+					<h2>公司发展历史</h2>
+					<p>菏泽天泽牡丹园艺有限公司位于中国牡丹之都----中国菏泽，是由菏泽市工商局、市税务局所颁发的一家正规企业单位，被誉为纳税第一人。菏泽天泽牡丹园艺有限公司是一家集牡丹芍药种植，鲜切花，冬季催花牡丹，科研，加工包装，出口与苗木种植销售为一体的综合性花木地，建场十多年。现有种植基地四个共一千多亩有适应南方湿热气候的品种三百亩;有适应东北湿冷气候的品种两百亩;有适应西北干冷气候的品种三百亩;本地品种四百亩。大量供应优质园林绿化及占地用牡丹苗、芍药苗、矮化美人蕉、牡丹树、催花牡丹、绿化苗木...</p>
+				</div>
+			</div><!-- row -->
+		</div><!-- greywrap -->
+		
+		<!-- ==== ABOUT ==== -->
+		<div class="container" id="about" name="about">
+			<div class="row white">
+			<br>
+				<h1 class="centered">曹州天泽牡丹园艺发展理念</h1>
+				<hr>
+				
+				<div class="col-lg-12 linian">
+					<p>【追求独立，崇尚自由；努力创造，享受生活；每一刻的付出为了下一秒的精彩】【质量至上，追求完美，并无微不至！】</p>
+				</div><!-- col-lg-6 -->
+				
+			<!-- 	<div class="col-lg-6">
+				<p></p>
+			</div> -->
+
+				<!-- col-lg-6 -->
+			</div><!-- row -->
+		</div><!-- container -->
+		
+		<!-- ==== SECTION DIVIDER1 -->
+		<section class="section-divider textdivider divider1" style="background:url('images/bg/divider2(2).jpg');">
+			<div class="container">
+				<h1>菏泽牡丹之都</h1>
+				<hr>
+				<p></p>
+			</div><!-- container -->
+		</section><!-- section -->
+		
+		
+		<!-- ==== SERVICES ==== -->
+		<div class="container" id="services" name="services">
+			<br>
+			<br>
+			<div class="row">
+				<h2 class="centered">一个商标，一个声音</h2>
+				<hr>
+				<br>
+				<div class="col-lg-offset-2 col-lg-8">
+					<p>员工和消费者。两半的一个品牌的整体,整个品牌的观众。有时这两个部分有非常不同的观点,创建一个品牌故事的弱点。弱点导致信誉。品牌不可信不可行。
+					</p>
+					<p>我们通过牡丹的品牌故事。这是精心设计的真理由员工和消费者创建一个连接从内而外的经验。
+被忠于我们代表的品牌,我们提高观众的关系。喜欢变成爱变成一种激情。激情变成了宣传。我们看到这个品牌从内部开花,创建一个整个故事观众拥抱，品牌才能真正大展拳脚。</p>
+				</div><!-- col-lg -->
+			</div><!-- row -->
+			
+			<div class="row">
+				<h2 class="centered">最受欢迎牡丹</h2>
+				<hr>
+				<br>
+				<div class="col-lg-offset-2 col-lg-8">
+				<div id="myCarousel" class="carousel slide">
+ 
+	<!-- 轮播（Carousel）项目 -->
+	<div class="carousel-inner">
+		<div class="item active myPhoto img-thumbnail">
+			<img class="img-responsive" src="images/mudan1.jpg" alt="">
+			<div class="carousel-caption">黑牡丹</div>
+		</div>
+		<div class="item myPhoto img-thumbnail">
+			<img class="img-responsive" src="images/mudan2.jpg" alt="">
+			<div class="carousel-caption">紫奎罗兰</div>
+		</div>
+		<div class="item myPhoto img-thumbnail">
+			<img class="img-responsive" src="images/mudan3.jpg" alt="">
+			<div class="carousel-caption">凤眼7号</div>
+		</div>
+	</div>
+	<!-- 轮播（Carousel）导航 -->
+	
+</div> 
+					
+				</div><!-- col -->
+			</div><!-- row -->
+		</div><!-- container -->
+  		
+
+		<!-- ==== SECTION DIVIDER2 -->
+		<section class="section-divider textdivider divider2" style="background:url('images/bg/divider2.jpg');">
+			<div class="container">
+				<h1>牡丹是一种理念</h1>
+				<hr>
+				<p>品味生活，品味自由，品味美丽</p>
+			</div><!-- container -->
+		</section><!-- section -->
+
+		<!-- ==== TEAM MEMBERS ==== -->
+		<div class="container" id="team" name="team">
+		<br>
+			<div class="row white centered">
+				<h1 class="centered">公司团队之光</h1>
+				<hr>
+				<br>
+				<br>
+				<div class="col-lg-3 centered">
+					<img class="img img-circle" src="images/team/team05.jpg" height="120px" width="120px" alt="">
+					<br>
+					<h4><b>边城</b></h4>
+					<a href="#" class="icon icon-user"></a>
+					<a href="#" class="icon icon-dice"></a>
+					<a href="#" class="icon icon-pencil"></a>
+					<p>公司创始人之一，公司的开心果，黏合剂。</p>
+				</div><!-- col-lg-3 -->
+				
+				<div class="col-lg-3 centered">
+					<img class="img img-circle" src="images/team/team03.jpg" height="120px" width="120px" alt="">
+					<br>
+					<h4><b>孔艳玲</b></h4>
+					<a href="#" class="icon icon-twitter"></a>
+					<a href="#" class="icon icon-facebook"></a>
+					<a href="#" class="icon icon-flickr"></a>
+					<p>董事会秘书，集美丽与智慧的奇女子。</p>
+				</div><!-- col-lg-3 -->
+				
+				<div class="col-lg-3 centered">
+					<img class="img img-circle" src="images/team/team07.jpg" height="120px" width="120px" alt="">
+					<br>
+					<h4><b>张鹏</b></h4>
+					<a href="#" class="icon icon-twitter"></a>
+					<a href="#" class="icon icon-facebook"></a>
+					<a href="#" class="icon icon-flickr"></a>
+					<p>张鹏是公司总负责人，每当客户订单荣至时就是他展露手脚之时...</p>
+				</div><!-- col-lg-3 -->
+				
+				<div class="col-lg-3 centered">
+					<img class="img img-circle" src="images/team/team08.jpg" height="120px" width="120px" alt="">
+					<br>
+					<h4><b>周喜雷</b></h4>
+					<a href="#" class="icon icon-twitter"></a>
+					<a href="#" class="icon icon-facebook"></a>
+					<a href="#" class="icon icon-flickr"></a>
+					<p>普通职员，勤恳努力换来公司一致认可。</p>
+				</div><!-- col-lg-3 -->
+				
+			</div><!-- row -->
+		</div><!-- container -->
+
+		<!-- ==== GREYWRAP ==== -->
+		<div id="greywrap">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8 centered">
+<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="100%" height="300"> 
+<param name="movie" value="images/zcm.swf"> 
+<param name="quality" value="high"> 
+<param name="wmode" value="transparent"> 
+<embed src="images/zcm.swf" width="100%" height="300" autostart="0" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent" width="100%" height="300"></embed> 
+</object>
+					</div>
+					<div class="col-lg-4">
+						<h2>加入我们!</h2>
+						<p>想成为我们的一员吗? 确定你想, 因为我们是一个专业的团队!. 在这里我们每天努力工作就像牡丹为绽放一样。</p>
+						<p><a class="btn btn-success smoothScroll" href="#contact">加入我们</a></p>
+					</div>					
+				</div><!-- row -->
+			</div>
+			<br>
+			<br>
+		</div><!-- greywrap -->
+		
+		<!-- ==== SECTION DIVIDER3 -->
+		<section class="section-divider textdivider divider3" style="background:url('images/bg/divider3.jpg');">
+			<div class="container">
+				<h1>解决方案</h1>
+				<hr>
+				<p>专业的团队，专业的栽培采用伯明翰先进营养学。</p>
+			</div><!-- container -->
+		</section><!-- section -->
+		
+		<!-- ==== PORTFOLIO ==== -->
+		<div class="container" id="portfolio" name="portfolio">
+		<br>
+			<div class="row">
+				<br>
+				<h1 class="centered">我们创建的产品</h1>
+				<hr>
+				<br>
+				<br>
+			</div><!-- /row -->
+			<div class="container">
+			<div class="row">	
+			
+				<!-- PORTFOLIO IMAGE 1 -->
+				<div class="col-md-4 ">
+			    	<div class="grid mask">
+						<figure>
+							<img class="img-responsive" src="images/penoy/product/mudanjie05.jpg" alt="">
+							<figcaption>
+								<h5>黑奎1号</h5>
+								<a data-toggle="modal" href="#myModal1" class="btn btn-primary btn-lg">详情</a>
+							</figcaption><!-- /figcaption -->
+						</figure><!-- /figure -->
+			    	</div><!-- /grid-mask -->
+				</div><!-- /col -->
+				
+				
+						 <!-- MODAL SHOW THE PORTFOLIO IMAGE. In this demo, all links point to this modal. You should create
+						      a modal for each of your projects. -->
+						      
+						  <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						          <h4 class="modal-title">详情</h4>
+						        </div>
+						        <div class="modal-body">
+						          <p><img class="img-responsive" src="images/mudan1.jpg" alt=""></p>
+						          <p>
+						          	此花鲜艳多汁，可供观赏也可供食用，美味至极。
+						          </p>
+						          <p><b><a href="detail.html">跳转到详情页面</a></b></p>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						  </div><!-- /.modal -->
+						    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						          <h4 class="modal-title">详情</h4>
+						        </div>
+						        <div class="modal-body">
+						          <p><img class="img-responsive" src="images/mudan2.jpg" alt=""></p>
+						          <p>
+						          	这是菏泽学院胡明祥教授发明利用嫁接技术而生，在当地颇为又名。
+						          </p>
+						          <p><b><a href="detail.html">跳转到详情页面</a></b></p>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						  </div><!-- /.modal -->
+				 <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						          <h4 class="modal-title">详情</h4>
+						        </div>
+						        <div class="modal-body">
+						          <p><img class="img-responsive" src="images/mudan3.jpg" alt=""></p>
+						          <p>
+						          	争芳斗艳当属它最强，深秋时节依然艳压群芳。
+						          </p>
+						          <p><b><a href="detail.html">跳转到详情页面</a></b></p>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						  </div><!-- /.modal -->
+				 <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						          <h4 class="modal-title">详情</h4>
+						        </div>
+						        <div class="modal-body">
+						          <p><img class="img-responsive" src="images/penoy/forViewPenoy/IMG_127.jpg" alt=""></p>
+						          <p>
+						          	传说张作霖将军以此为祥物，带来了多次战争的胜利。
+						          </p>
+						          <p><b><a href="detail.html">跳转到详情页面</a></b></p>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						  </div><!-- /.modal -->
+						   <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						          <h4 class="modal-title">详情</h4>
+						        </div>
+						        <div class="modal-body">
+						          <p><img class="img-responsive" src="images/penoy/forViewPenoy/IMG_16.jpg" alt=""></p>
+						          <p>
+						          	它的种子做成食用油比市场价低1个百分点，但是营养价值却高出异类牡丹。
+						          </p>
+						          <p><b><a href="detail.html">跳转到详情页面</a></b></p>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						  </div><!-- /.modal -->
+						   <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						    <div class="modal-dialog">
+						      <div class="modal-content">
+						        <div class="modal-header">
+						          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						          <h4 class="modal-title">详情</h4>
+						        </div>
+						        <div class="modal-body">
+						          <p><img class="img-responsive" src="images/penoy/forViewPenoy/IMG_19.jpg" alt=""></p>
+						          <p>
+						          	菏泽花魁之首，恶劣天气不用大量照顾，可以说散养即可。
+						          </p>
+						          <p><b><a href="detail.html">跳转到详情页面</a></b></p>
+						        </div>
+						        <div class="modal-footer">
+						          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        </div>
+						      </div><!-- /.modal-content -->
+						    </div><!-- /.modal-dialog -->
+						  </div><!-- /.modal -->
+				<!-- PORTFOLIO IMAGE 2 -->
+				<div class="col-md-4">
+			    	<div class="grid mask">
+						<figure>
+							<img class="img-responsive" src="images/penoy/product/Small_2016718224160.jpg" alt="">
+							<figcaption>
+								<h5>牡丹酒</h5>
+								<a data-toggle="modal" href="#myModal2" class="btn btn-primary btn-lg">详情</a>
+							</figcaption><!-- /figcaption -->
+						</figure><!-- /figure -->
+			    	</div><!-- /grid-mask -->
+				</div><!-- /col -->
+				
+
+
+				<!-- PORTFOLIO IMAGE 3 -->
+				<div class="col-md-4">
+			    	<div class="grid mask">
+						<figure>
+							<img class="img-responsive" src="images/penoy/product/Small_2016718226240.jpg" alt="">
+							<figcaption>
+								<h5>牡丹粉</h5>
+								<a data-toggle="modal" href="#myModal3" class="btn btn-primary btn-lg">详情</a>
+							</figcaption><!-- /figcaption -->
+						</figure><!-- /figure -->
+			    	</div><!-- /grid-mask -->
+				</div><!-- /col -->
+			</div><!-- /row -->
+
+				<!-- PORTFOLIO IMAGE 4 -->
+			<div class="row">	
+				<div class="col-md-4 ">
+			    	<div class="grid mask">
+						<figure>
+							<img class="img-responsive" src="images/penoy/product/Small_2016718222550.jpg" alt="">
+							<figcaption>
+								<h5>牡丹花蕊制品</h5>
+								<a data-toggle="modal" href="#myModal4" class="btn btn-primary btn-lg">详情</a>
+							</figcaption><!-- /figcaption -->
+						</figure><!-- /figure -->
+			    	</div><!-- /grid-mask -->
+				</div><!-- /col -->
+				
+				<!-- PORTFOLIO IMAGE 5 -->
+				<div class="col-md-4">
+			    	<div class="grid mask">
+						<figure>
+							<img class="img-responsive" src="images/penoy/product/163056a3dcrd0df43flfzr.jpg" alt="">
+							<figcaption>
+								<h5>七叶树</h5>
+								<a data-toggle="modal" href="#myModal5" class="btn btn-primary btn-lg">详情</a>
+							</figcaption><!-- /figcaption -->
+						</figure><!-- /figure -->
+			    	</div><!-- /grid-mask -->
+				</div><!-- /col -->
+				
+				<!-- PORTFOLIO IMAGE 6 -->
+				<div class="col-md-4">
+			    	<div class="grid mask">
+						<figure>
+							<img class="img-responsive" src="images/penoy/product/20151012123351_10928.jpg" alt="">
+							<figcaption>
+								<h5>红花紫薇</h5>
+								<a data-toggle="modal" href="#myModal6" class="btn btn-primary btn-lg">详情</a>
+							</figcaption><!-- /figcaption -->
+						</figure><!-- /figure -->
+			    	</div><!-- /grid-mask -->
+				</div><!-- /col -->
+			</div><!-- /row -->
+			<br>
+			<br>
+		</div><!-- /row -->
+	</div><!-- /container -->
+
+		<!-- ==== SECTION DIVIDER4 ==== -->
+		<section class="section-divider textdivider divider4" style="background:url('images/bg/divider4(2).jpg');">
+			<div class="container">
+				<h1>选择天泽牡丹的优势</h1>
+				<hr>
+				<p>天泽牡丹园艺有限公司； 拥有牡丹芍药基地600多亩真正的自产自销经营行业30余年经验丰富、技术过硬    在全国承建了8个大中型牡丹园，有非常成熟的经验和理念。做人诚恳、诚信经营、老客户遍布全国！
+</p>
+			</div><!-- container -->
+		</section><!-- section -->
+		
+		<!-- ==== BLOG ==== -->
+		<div class="container" id="blog" name="blog">
+		<br>
+			<div class="row">
+				<br>
+				<h1 class="centered">我们的故事</h1>
+				<hr>
+				<br>
+				<br>
+			</div><!-- /row -->
+			
+			<div class="row">
+				<div class="col-lg-6 blog-bg">
+					<div class="col-lg-4 centered">
+					<br>
+						<p><img class="img img-circle" src="images/team/team07.jpg" width="60px" height="60px"></p>
+						<h4>张鹏</h4>
+						<h5>1992.10.25</h5>
+					</div>
+					<div class="col-lg-8 blog-content">
+						<h2>我们定义成功</h2>
+						<p>活着就是为了改变世界，难道还有其他原因吗？</p>
+						<p><a href="#" class="icon icon-link">更多</a></p>
+						<br>
+					</div>
+				</div><!-- /col -->
+				
+				<div class="col-lg-6 blog-bg">
+					<div class="col-lg-4 centered">
+					<br>
+						<p><img class="img img-circle" src="images/team/team06.jpg" width="60px" height="60px"></p>
+						<h4>张明朝 </h4>
+						<h5>1926.26.26</h5>
+					</div>
+					<div class="col-lg-8 blog-content">
+						<h2>向上的演变</h2>
+						<p>理想也是人生的太阳</p>
+						<p><a href="#" class="icon icon-link">更多</a></p>
+						<br>
+					</div>
+				</div><!-- /col -->
+			</div><!-- /row -->
+			<br>
+			<br>
+		</div><!-- /container -->
+
+		
+		<!-- ==== SECTION DIVIDER6 ==== -->
+		<section class="section-divider textdivider divider6" style="background:url('images/bg/divider6.jpg');">
+			<div class="container">
+				<h1>中国菏泽牡丹</h1>
+				<hr>
+				<p>菏泽市牡丹区张集</p>
+				<p>如望合作，请致电188160022521，诚挚恭候</p>
+				
+			</div><!-- container -->
+		</section><!-- section -->
+		
+		<div class="container" id="contact" name="contact">
+			<div class="row">
+			<br>
+				<h1 class="centered">THANKS FOR VISITING US</h1>
+				<hr>
+				<br>
+				<br>
+				<div class="col-lg-4">
+					<h3>联系信息</h3>
+					<p><span class="icon icon-home"></span>菏泽市220国道张集<br/>
+						<span class="icon icon-phone"></span> +13853054865 <br/>
+						<span class="icon icon-mobile"></span> +188160022521 <br/>
+						<span class="icon icon-envelop"></span> <a href="#"> zhangguo3026@126.com</a> <br/>
+					</p>
+				</div><!-- col -->
+				
+				<div class="col-lg-4">
+					<h3>即时通讯</h3>
+					<p>注册我们，将给您提供更多服务。</p>
+					<p>请致电张经理:188160022521
+						<!-- <form class="form-horizontal" role="form">
+						  <div class="form-group">
+						    <label for="inputEmail1" class="col-lg-4 control-label"></label>
+						    <div class="col-lg-10">
+						      <input type="email" class="form-control" id="inputEmail1" placeholder="邮箱">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="text1" class="col-lg-4 control-label"></label>
+						    <div class="col-lg-10">
+						      <input type="text" class="form-control" id="text1" placeholder="名称">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <div class="col-lg-10">
+						      <button type="submit" class="btn btn-success">注册</button>
+						    </div>
+						  </div>
+											   </form> --><!-- form -->
+					</p>
+				</div><!-- col -->
+				
+				<div class="col-lg-4">
+					<h3>支持我们</h3>
+					<p>菏泽天泽牡丹园艺有限公司位于中国牡丹之都----中国菏泽，是由菏泽市工商局、市税务局所颁发的一家正规企业单位，被誉为纳税第一人。菏泽明创牡丹园艺有限公司是一家集牡丹芍药种植，鲜切花，冬季催花牡丹，科研，加工包装，出口与苗木种植销售为一体的综合性花木地，建场十多年。现有种植基地四个共一千多亩，有适应南方湿热气候的品种三百亩;有适应东北湿冷气候的.</p>
+				</div><!-- col -->
+
+			</div><!-- row -->
+		</div><!-- container -->
+
+		<div id="footerwrap">
+			<div class="container">
+				<h4>曹州天泽牡丹园艺 - Copyright 2016</h4>
+			</div>
+		</div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+		      	
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="js/smoothscroll.js"></script>
+	<script type="text/javascript" src="js/jquery-func.js"></script>
+	<script type="text/javascript" src="js/angular.js"></script>
+  </body>
+</html>

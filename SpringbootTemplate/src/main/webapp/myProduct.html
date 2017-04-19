@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>参与项目</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.js"></script>
+			<style type="text/css">
+				@-webkit-keyframes buzz-out {
+		          0% {
+		            -webkit-transform: translateX(5px) rotate(2deg);
+		          }
+		          50% {
+		            -webkit-transform: translateX(2px) rotate(3deg);
+		          }
+		          100% {
+		            -webkit-transform: translateX(-3px) rotate(-2deg);
+		          }
+		}
+		.col-md-4{
+            -webkit-animation-name: buzz-out;
+            -webkit-animation-duration: 1s;
+            animation-direction:direction:alternate;
+            -webkit-animation-iteration-count: 100;
+		}
+		.myPhotos{
+			height: 400px;
+			margin-top: -40px;
+			z-index: -5;
+		}
+		.firstImg{
+			z-index: 23;
+		}
+			</style>
+			<script type="text/javascript">
+				$(function(){
+					/*$(".col-md-4").each(function(){
+						$(this).bind(function())
+					})*/
+					$(".col-md-4").click(function(){
+						window.location.href="zhanwang.html";
+					})
+
+
+				})
+			</script>
+</head>
+<body>
+	<div class="container">
+		<div class="row" >
+			<div class="col-md-4 firstImg">
+				<div class="panel panel-default">
+					<div class="panel-heading">物证一期</div>
+					<div class="panel-body">
+						<span>职责：</span>
+						接手一期的同时修改bug，增加功能.<br/>
+						一期协查，直查数据迁移。
+
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4 firstImg">
+				<div class="panel panel-default">
+					<div class="panel-heading">武汉交管局</div>
+					<div class="panel-body">
+						<span>职责：</span>
+						梳理数据库
+					</div>
+				</div>
+			</div>
+		</div>
+			<div class="row">
+				<div class="row myPhotos">
+			
+		<div id="myCarousel" class="carousel slide">
+	<!-- 轮播（Carousel）指标 -->
+  
+	<!-- 轮播（Carousel）项目 -->
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="images/last/1.jpg" class="img-responsive" alt="First slide">
+				</div>
+				<div class="item">
+					<img src="images/last/2.jpg" class="img-responsive" alt="Second slide">
+				</div>
+				<div class="item">
+					<img src="images/last/3.jpg" class="img-responsive" alt="Third slide">
+				</div>
+				<div class="item">
+					<img src="images/last/4.jpg" class="img-responsive" alt="Third slide">
+				</div>
+				<div class="item">
+					<img src="images/last/dna2_3.jpeg" class="img-responsive" alt="Third slide">
+				</div>
+				<div class="item">
+					<img src="images/last/dna1_2.jpeg" class="img-responsive" alt="Third slide">
+				</div>
+				<div class="item">
+					<img src="images/last/dna2_1.jpeg" class="img-responsive" alt="Third slide">
+				</div>
+				<div class="item">
+					<img src="images/last/dna2_2.jpeg" class="img-responsive" alt="Third slide">
+				</div>
+			</div>
+			<!-- 轮播（Carousel）导航 -->
+			<a class="carousel-control left" href="#myCarousel" 
+			   data-slide="prev">&lsaquo;</a>
+			<a class="carousel-control right" href="#myCarousel" 
+			   data-slide="next">&rsaquo;</a>
+		</div> 
+			
+		</div>
+			</div>
+			<div class="row">
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">物证二期</div>
+					<div class="panel-body">
+						<span>职责：</span>
+						全程参与，战果和通报和服务器监控功能的一些开发。
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">济南交管</div>
+					<div class="panel-body">
+						<span>职责：</span>
+						临时调配支援，从暴漏的webservice\http接口中取得数据放入数据库中。
+					</div>
+				</div>
+			</div>
+		</div>
+		<hr/>
+	</div>
+</body>
+</html>

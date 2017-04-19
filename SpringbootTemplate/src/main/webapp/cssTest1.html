@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css3Test1</title>
+	<style type="text/css">
+		#rotateOne{
+			width: 100px;
+			height: 100px;
+			background: red;
+			overflow: hidden;
+			/* transform: rotate(100deg); */
+			border-width: 2px;
+			position: absolute;
+			left: 80px;
+		/* 	border-radius: 40px; */
+			/*h-shadow,v-shadow,blur,spread,color[,inset]*/
+			box-shadow: 10px 10px 5px 5px green;
+		}
+		#div2{
+			height: 200px;
+			background: yellow;
+			border:3px dotted black;
+			padding: 20px;
+			background-clip: padding-box;
+		}
+		#div3Out{
+			position: relative;
+		}
+		#div3{
+			position: absolute;
+			left: 100px;
+			background: red;
+			width: 200px;
+			height: 200px;
+			transform: translateX(12px);/*沿x轴移动*/
+			transform: translateY(23px);/*沿y轴移动*/
+			transform: translateZ(23px);/*沿z轴移动*/
+			transform: translate(120px,20px);/*沿x,y轴移动*/
+
+			transform: rotateX(23deg);/*沿X轴旋转*/
+			transform: rotateY(23deg);/*沿Y轴旋转*/
+		    transform: rotate(29deg);/*沿原点旋转*/
+
+		    transform: scaleX(1);/*沿X轴扩大或缩小*/
+		    transform: scaleY(1);/*沿y轴扩大或缩小*/
+			transform: scale(2,4);/*沿x,y轴扩大或缩小*/
+
+			transform: skewX(200deg); /*不明*/	
+			transform: skewY(200deg); /*不明*/
+			transform: skew(200deg,100deg); /*不明*/
+			transform: rotateY(50deg);
+			transform-style: preserve-3d;
+			position: absolute;
+
+		}
+
+		#div4{
+			position: relative;
+			border:1px solid red;
+			width: 500px;
+			height: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div id="rotateOne"></div>
+	<div id="div2">www</div>
+	<div id="div3Out">
+		<div id="div3">ab</div>
+	</div>
+
+
+	<div id="div4">
+		<div id="div5"></div>
+	</div>
+</body>
+</html>
